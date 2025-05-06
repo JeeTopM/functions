@@ -8,15 +8,22 @@ typeinfo — тип данных или кортеж с типами
 """
 
 
-def custom_isinstance():
-    pass
+def custom_isinstance(objects, typeinfo):
+    return sum(isinstance(i, typeinfo) for i in objects)
 
+
+"""    cht = 0
+    for i in objects:
+        cht += isinstance(i, typeinfo)
+    return cht"""
 
 numbers = [1, "two", 3.0, "четыре", 5, 6.0]
 print(custom_isinstance(numbers, int))
+
 # 2
 numbers = [1, "two", 3.0, "четыре", 5, 6.0]
 print(custom_isinstance(numbers, (int, float)))
+
 # 4
 numbers = [1, "two", 3.0, "четыре", 5, 6.0]
 print(custom_isinstance(numbers, list))

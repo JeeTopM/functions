@@ -8,8 +8,8 @@ number — целое число
 """
 
 
-def is_greater():
-    pass
+def is_greater(lists, number):
+    return any(sum(i) > number for i in lists)
 
 
 data = [[-3, 4, 0, 1], [1, 1, -4], [0, 0], [9, 3]]

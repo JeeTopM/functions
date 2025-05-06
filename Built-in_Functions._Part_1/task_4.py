@@ -6,8 +6,8 @@ numbers — непустой список чисел
 """
 
 
-def non_negative_even():
-    pass
+def non_negative_even(numbers):
+    return all(i >= 0 and i % 2 == 0 for i in numbers)
 
 
 print(non_negative_even([0, 2, 4, 8, 16]))

@@ -5,12 +5,22 @@
 все отсортированные заглавные буквы стоят перед цифрами
 все отсортированные нечетные цифры стоят перед отсортированными четными
 """
+s = input().strip()
 
-s = "Sorting1234"
+# Разделяем символы на группы и сразу сортируем
+lowercase = sorted([c for c in s if c.islower()])
+uppercase = sorted([c for c in s if c.isupper()])
+digits = sorted([c for c in s if c.isdigit()], key=lambda x: (int(x) % 2 == 0, x))
+
+result = ''.join(lowercase + uppercase + digits)
+print(result)
+
+
+"Sorting1234"
 # ginortS1324
 
-s = "n0tEast3rEgg"
+"n0tEast3rEgg"
 # aggnrsttEE30
 
-s = "3DYrz34UXl"
+"3DYrz34UXl"
 # lrzDUXY334

@@ -20,3 +20,16 @@ films = {
     "The Shawshank Redemption": {"imdb": 9.3, "kinopoisk": 9.1},
     "Avengers: Endgame": {"imdb": 8.4, "kinopoisk": 7.7},
 }
+# print(min(films, key=lambda x: sum(films[x].values())))
+
+movie = ''
+raiting = 100
+
+for film in films.keys():
+    sum_rait = sum(films[film].values())
+    if sum_rait < raiting:
+        movie = film
+        raiting = sum_rait
+
+print(movie)
+

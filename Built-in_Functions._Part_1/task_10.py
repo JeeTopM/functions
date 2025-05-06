@@ -11,17 +11,23 @@
 """
 
 
-def zip_longest():
-    pass
+def zip_longest(*args, fill=None):
+    ml = max(len(i) for i in args)  # max(map(len, args))
+    lst = [arg + [fill] * (ml - len(arg)) for arg in args]
+    return [res for res in zip(*lst)]  # list(zip(*lst))
 
 
-print(zip_longest([1, 2, 3, 4, 5], ['a', 'b', 'c'], fill='_'))
+print(zip_longest([1, 2, 3, 4, 5], ["a", "b", "c"], fill="_"))
 # [(1, 'a'), (2, 'b'), (3, 'c'), (4, '_'), (5, '_')]
 
-data = [[1, 2, 3, 4, 5], ['one', 'two', 'three'], ['I', 'II']]
+data = [[1, 2, 3, 4, 5], ["one", "two", "three"], ["I", "II"]]
 print(zip_longest(*data))
 # [(1, 'one', 'I'), (2, 'two', 'II'), (3, 'three', None), (4, None, None), (5, None, None)]
 
-data = [[1, 2, 3, 4, 5], ['one', 'two', 'three', 'four', 'five'], ['I', 'II', 'III', 'IV', 'V']]
+data = [
+    [1, 2, 3, 4, 5],
+    ["one", "two", "three", "four", "five"],
+    ["I", "II", "III", "IV", "V"],
+]
 print(zip_longest(*data))
 # [(1, 'one', 'I'), (2, 'two', 'II'), (3, 'three', 'III'), (4, 'four', 'IV'), (5, 'five', 'V')]

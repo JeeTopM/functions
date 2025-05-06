@@ -10,7 +10,15 @@
 names = ['Moana', 'Cars', 'Zootopia', 'Ratatouille', 'Coco', 'Inside Out', 'Finding Nemo', 'Frozen']
 budgets = [150000000, 120000000, 150000000, 150000000, 180000000, 175000000, 94000000, 150000000]
 box_offices = [643331111, 462216280, 1023784195, 620702951, 807082196, 857611174, 940335536, 1280802282]
-
-
-
-
+# код работает правильно, но не так понял задачу
+'''
+films = {}
+for film, box, bgt in zip(names, box_offices, budgets):
+    films.setdefault(film, box - bgt) # films[film] = box - bgt
+# films = sorted(films.items(), key=lambda x: x[1])  # тут я подумал, что надо по прибыли сортировку делать...
+for film, profit in sorted(films.items()):
+    print(f'{film}: {profit}$')
+'''
+# а это уже после доработки
+for film, box, bgt in sorted(zip(names, box_offices, budgets)):
+    print(f'{film}: {box - bgt}$')

@@ -6,8 +6,8 @@ number — целое неотрицательное число
 """
 
 
-def my_pow():
-    pass
+def my_pow(number):
+    return sum(pow(int(i), n) for n, i in enumerate(str(number), 1))
 
 
 print(my_pow(139))  # 739
