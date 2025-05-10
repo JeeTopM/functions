@@ -7,8 +7,11 @@ objects — список хешируемых объектов
 """
 
 
-def hash_as_key(objects):
-    pass
+def hash_as_key(objects: list) -> dict:
+    data = {}
+    for obj in objects:
+        data.setdefault(hash(obj), []).append(obj)
+    return {k: v[0] if len(v) == 1 else v for k, v in data.items()}
 
 
 data = [1, 2, 3, 4, 5, 5]
