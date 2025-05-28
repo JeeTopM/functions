@@ -12,7 +12,13 @@ elems — список произвольных объектов
 
 
 def numbers_sum(elems):
-    pass
+    '''Принимает список и возвращает сумму его чисел (int, float),
+    игнорируя нечисловые объекты. 0 - если в списке чисел нет.'''
+    sum_elems = sum(x for x in elems if isinstance(x, (int, float)))
+    # sum_elems = sum(filter(lambda x: isinstance(x, (int, float)), elems))
+    return sum_elems
 
 
 print(numbers_sum([1, "2", 3, 4, "five"]))
+print(numbers_sum(['beegeek', 'stepik', '100']))
+print(numbers_sum.__doc__)
