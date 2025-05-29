@@ -9,15 +9,13 @@ marks — набор символов
 
 
 def remove_marks(text, marks):
-    pass
+    remove_marks.__dict__["count"] = remove_marks.__dict__.get("count", 0) + 1
+    for i in marks:
+        text = text.replace(i, "")
+    return text
 
 
 text = "Hi! Will we go together?"
 
 print(remove_marks(text, "!?"))
 print(remove_marks.count)
-
-"""
-Hi Will we go together
-1
-"""
