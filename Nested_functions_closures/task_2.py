@@ -12,7 +12,10 @@ c — вещественное число, коэффициент c
 
 
 def generator_square_polynom(a, b, c):
-    pass
+    def func(x):
+        return a * pow(x, 2) + b * x + c
+
+    return func
 
 
 f = generator_square_polynom(1, 2, 1)
