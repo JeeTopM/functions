@@ -11,37 +11,17 @@ from datetime import date
 
 
 def date_formatter(country_code):
-    def ru(dt):
-        return date.strftime(today, "%d.%m.%Y")  # DD.MM.YYYY
-
-    def us(dt):
-        return date.strftime(today, "%m-%d-%Y")  # MM-DD-YYYY
-
-    def ca(dt):
-        return date.strftime(today, "%Y-%m-%d")  # YYYY-MM-DD
-
-    def br(dt):
-        return date.strftime(today, "%d/%m/%Y")  # DD/MM/YYYY
-
-    def fr(dt):
-        return date.strftime(today, "%d.%m.%Y")  # DD.MM.YYYY
-
-    def pt(dt):
-        return date.strftime(today, "%d-%m-%Y")  # DD-MM-YYYY
-
-    if country_code == "ru":
-        return ru
-    if country_code == "us":
-        return us
-    if country_code == "ca":
-        return ca
-    if country_code == "br":
-        return br
-    if country_code == "fr":
-        return fr
-    if country_code == "pt":
-        return pt
-
+    def date_formatter(dt):
+        cc = {
+            "ru": "%d.%m.%Y",
+            "us": "%m-%d-%Y",
+            "ca": "%Y-%m-%d",
+            "br": "%d/%m/%Y",
+            "fr": "%d.%m.%Y",
+            "pt": "%d-%m-%Y",
+        }
+        return date.strftime(dt, cc[country_code])
+    return date_formatter
 
 date_ru = date_formatter("ru")
 today = date(2022, 1, 25)
