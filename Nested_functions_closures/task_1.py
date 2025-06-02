@@ -7,9 +7,15 @@ degree — целое число
 """
 
 
-def power(x):
-    pass
-
+def power(degree):
+    def func(x):
+        return pow(x, degree)
+    return func
 
 square = power(2)
 print(square(5))  # 25
+
+print(power(3)(3)) # 27
+
+result = power(4)(2)
+print(result)  # 16
