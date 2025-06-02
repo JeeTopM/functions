@@ -9,7 +9,10 @@ group — список, кортеж или множество чисел
 
 
 def sort_priority(values, group):
-    pass
+    def srt(n):
+        return (0, n) if n in group else (1, n)
+
+    values.sort(key=srt)
 
 
 numbers = [8, 3, 1, 2, 5, 4, 7, 6]
