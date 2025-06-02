@@ -10,8 +10,37 @@ country_code — код страны
 from datetime import date
 
 
-def date_formatter():
-    pass
+def date_formatter(country_code):
+    def ru(dt):
+        return date.strftime(today, "%d.%m.%Y")  # DD.MM.YYYY
+
+    def us(dt):
+        return date.strftime(today, "%m-%d-%Y")  # MM-DD-YYYY
+
+    def ca(dt):
+        return date.strftime(today, "%Y-%m-%d")  # YYYY-MM-DD
+
+    def br(dt):
+        return date.strftime(today, "%d/%m/%Y")  # DD/MM/YYYY
+
+    def fr(dt):
+        return date.strftime(today, "%d.%m.%Y")  # DD.MM.YYYY
+
+    def pt(dt):
+        return date.strftime(today, "%d-%m-%Y")  # DD-MM-YYYY
+
+    if country_code == "ru":
+        return ru
+    if country_code == "us":
+        return us
+    if country_code == "ca":
+        return ca
+    if country_code == "br":
+        return br
+    if country_code == "fr":
+        return fr
+    if country_code == "pt":
+        return pt
 
 
 date_ru = date_formatter("ru")
