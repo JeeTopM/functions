@@ -6,8 +6,8 @@ grades — словарь, содержащий данные об ученике
 """
 
 
-def top_grade(grades):
-    pass
+def top_grade(grades: dict[str, str | list[int]]) -> dict[str, str | int]:
+    return {"name": grades["name"], "top_grade": max(grades["grades"])}
 
 
 info = {"name": "Timur", "grades": [30, 57, 99]}
@@ -17,6 +17,9 @@ print(top_grade(info))
 print(top_grade({"name": "Ruslan", "grades": [19, 48, 86, 45, 32]}))
 # {'name': 'Ruslan', 'top_grade': 86}
 
+
 annotations = top_grade.__annotations__
 print(annotations["grades"])
 # dict[str, str | list[int]]
+
+print(*top_grade.__annotations__.values())

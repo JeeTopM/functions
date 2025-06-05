@@ -8,10 +8,23 @@ step — целое число
 """
 
 
-def cyclic_shift(numbers, step):
-    pass
+def cyclic_shift(numbers: list[int | float], step: int) -> None:
+    shift = step % len(numbers)
+    numbers[:] = numbers[-shift:] + numbers[:-shift]
 
 
+"""
+    s = step % len(numbers)
+    if step < 0:
+        left = numbers[:-s]
+        right = numbers[-s:]
+        numbers[:] = right + left
+    else:
+        left = numbers[-s:]
+        right = numbers[:-s]
+        numbers[:] = left + right
+
+"""
 numbers = [1, 2, 3, 4, 5]
 cyclic_shift(numbers, 1)
 print(numbers)
