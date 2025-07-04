@@ -4,9 +4,15 @@
 Также декоратор должен сохранять имя и строку документации декорируемой функции.
 """
 
+import functools
+
 
 def square(func):
-    pass
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        return func(*args, **kwargs) ** 2
+
+    return wrapper
 
 
 # 1
@@ -36,3 +42,15 @@ print(add.__doc__)
 add
 прекрасная функция
 """
+
+
+# 3
+@square
+def beegeek():
+    """beegeek docs"""
+    return 99
+
+
+print(beegeek())
+print(beegeek.__name__)
+print(beegeek.__doc__)
