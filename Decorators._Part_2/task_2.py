@@ -4,10 +4,18 @@
 Если возвращаемое значение принадлежит какому-либо другому типу, декоратор должен возбуждать исключение TypeError.
 Также декоратор должен сохранять имя и строку документации декорируемой функции.
 """
+import functools
 
 
-def returns_string():
-    pass
+def returns_string(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        f = func(*args, **kwargs)
+        if isinstance(f, str):
+            return f
+        else:
+            raise TypeError
+    return wrapper
 
 
 # 1
